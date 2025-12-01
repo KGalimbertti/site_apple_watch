@@ -42,15 +42,16 @@ let imagemSelecionada = 1;
 function atualizarCorSelecionada() {
   const numeroCorSelecionada = document
     .querySelector('[name="opcao-cor"]:checked')
-    .id.chartAt(0);
+    .id.charAt(0);
 
   corSelecionada = numeroCorSelecionada;
 
   nomeCorSelecionada.innerText = `Cor - ${opcoesCores[corSelecionada].nome}`;
-  tituloProduto.innerText = `Pulseira loop esportiva${opcoesCores[corSelecionada].nome.toLowerCase} para caixa de tamanho ${opcoesTamanho[tamanhoSelecionado]}`;
+  tituloProduto.innerText = `Pulseira loop esportiva ${opcoesCores[
+    corSelecionada
+  ].nome.toLowerCase()} para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
 
-  imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}.jpeg`;
-
+  imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}/imagem-${imagemSelecionada}.jpeg`;
   opcaoImagem0.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}/imagem-0.jpeg`;
   opcaoImagem1.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}/imagem-1.jpeg`;
   opcaoImagem2.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}/imagem-2.jpeg`;
@@ -75,17 +76,16 @@ function atualizarTamanho() {
 
   imagemVisualizacao.classList.remove("caixa-pequena");
 
-  tituloProduto.innerText = `Pulseira loop esportivo ${opcoesCores[
+  tituloProduto.innerText = `Pulseira loop esportiva ${opcoesCores[
     corSelecionada
-  ].nome.toLowerCase()} para caixe de ${opcoesTamanho[tamanhoSelecionado]}`;
+  ].nome.toLowerCase()} para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
 }
 
 function atualizarImagemSelecionada() {
-  const opcaoImagensSelecionada = document
+  const opcaoImagemSelecionada = document
     .querySelector('[name="opcao-imagem"]:checked')
     .id.charAt(0);
 
-  imagemSelecionada = opcaoImagensSelecionada;
-
+  imagemSelecionada = opcaoImagemSelecionada;
   imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].nomePastaImagens}/imagem-${imagemSelecionada}.jpeg`;
 }
